@@ -36,14 +36,26 @@ const tagsList = [
 
 class App extends Component {
   state = {
+    isClicked: true,
     activeTag: '',
     taskName: '',
     taskTag: tagsList[0].optionId,
     taskList: [],
   }
 
+  changeClicked = id => {
+    this.setState(prevState => ({isClicked: !prevState.isClicked}))
+    this.changeActiveId(id)
+  }
+
   changeActiveId = id => {
-    this.setState({activeTag: id})
+    const {isClicked} = this.state
+
+    if (isClicked) {
+      this.setState({activeTag: id})
+    } else {
+      this.setState({activeTag: ''})
+    }
   }
 
   getTaskName = event => {
@@ -118,7 +130,7 @@ class App extends Component {
   }
 
   render() {
-    const {taskList} = this.state
+    const {taskList, activeTag} = this.state
 
     return (
       <div className="home-page">
@@ -139,7 +151,8 @@ class App extends Component {
               <TagItem
                 details={eachTag}
                 key={eachTag.optionId}
-                changeActiveId={this.changeActiveId}
+                changeClicked={this.changeClicked}
+                isActive={eachTag.optionId === activeTag}
               />
             ))}
           </ul>

@@ -5,7 +5,8 @@ const TaskItem = props => {
 
   const {taskName, taskTag} = details
 
-  const capitalizedTaskTag = taskTag.charAt(0).toUpperCase() + taskTag.slice(1)
+  const capitalizedTaskTag =
+    taskTag.charAt(0).toUpperCase() + taskTag.slice(1).toLowerCase()
 
   return (
     <li className="task-item">
