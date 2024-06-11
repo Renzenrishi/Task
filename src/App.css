@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.home-page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'Roboto';
+}
+
+.create-task-container {
+  background-color: #131213;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 40vw;
+  padding: 10px;
+}
+
+.task-heading {
+  color: #f3aa4e;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+  height: 15vw;
+}
+
+label {
+  font-weight: bold;
+}
+
+.input-bar {
+  width: 38vw;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.add-btn {
+  background-color: #f3aa4e;
+  color: white;
+  border: 0px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 90px;
+}
+
+.tags-container {
+  background-color: #000000;
+  height: 100vh;
+  width: 60vw;
+  color: white;
+  padding: 10px;
+}
+
+.tags-btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  list-style-type: none;
+}

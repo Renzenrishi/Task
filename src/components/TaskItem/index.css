@@ -1,0 +1,14 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a171d;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.golden {
+  background-color: #f3aa4e;
+  padding: 10px;
+  color: black;
+}

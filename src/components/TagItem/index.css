@@ -1,0 +1,8 @@
+.tag-btn {
+  background-color: transparent;
+  border: 1px solid #f3aa4e;
+  color: #f3aa4e;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
