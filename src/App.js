@@ -71,15 +71,21 @@ class App extends Component {
 
     const {taskName, taskTag} = this.state
 
+    console.log(taskName, taskTag)
+
     const taskDetails = {
       id: v4(),
       taskName,
       taskTag,
     }
 
-    this.setState(prevState => ({
-      taskList: [...prevState.taskList, taskDetails],
-    }))
+    if (taskName !== '' && taskTag !== '') {
+      this.setState(prevState => ({
+        taskList: [...prevState.taskList, taskDetails],
+      }))
+    } else {
+      this.setState({taskName: '', taskTag: ''})
+    }
   }
 
   renderTaskInput = () => {
@@ -103,7 +109,7 @@ class App extends Component {
   renderSelectEl = () => (
     <>
       <label htmlFor="tags">Tags</label>
-      <select className="input-bar" onChange={this.getTaskTag}>
+      <select className="input-bar" onChange={this.getTaskTag} id="tags">
         {tagsList.map(each => (
           <option key={each.optionId} value={each.optionId}>
             {each.displayText}
