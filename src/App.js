@@ -71,20 +71,20 @@ class App extends Component {
 
     const {taskName, taskTag} = this.state
 
-    console.log(taskName, taskTag)
-
     const taskDetails = {
       id: v4(),
       taskName,
       taskTag,
     }
 
-    if (taskName !== '' && taskTag !== '') {
+    if (taskName !== '') {
       this.setState(prevState => ({
         taskList: [...prevState.taskList, taskDetails],
+        taskName: '',
+        taskTag: tagsList[0].optionId,
       }))
     } else {
-      this.setState({taskName: '', taskTag: ''})
+      this.setState({taskName: '', taskTag: tagsList[0].optionId})
     }
   }
 
@@ -122,13 +122,22 @@ class App extends Component {
   renderTasks = () => {
     const {taskList, activeTag} = this.state
 
-    const filteredList = taskList.filter(task => task.taskTag === activeTag)
+    if (activeTag === '') {
+      return (
+        <>
+          {taskList.map(eachItem => (
+            <TaskItem details={eachItem} key={eachItem.id} />
+          ))}
+        </>
+      )
+    }
 
-    const customList = activeTag === '' ? taskList : filteredList
+    // If a tag is active, filter the task list based on the active tag
+    const filteredList = taskList.filter(task => task.taskTag === activeTag)
 
     return (
       <>
-        {customList.map(eachItem => (
+        {filteredList.map(eachItem => (
           <TaskItem details={eachItem} key={eachItem.id} />
         ))}
       </>
